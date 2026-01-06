@@ -40,7 +40,7 @@ export default function Page() {
           </p>
 
           <div className="pt-4">
-            <p className="text-sm text-zinc-500 font-mono">{"// Building the future of cross media"}</p>
+            <p className="text-sm text-zinc-500 font-mono">{"// Building the future of and across media"}</p>
           </div>
         </div>
 
