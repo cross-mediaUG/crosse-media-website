@@ -244,7 +244,7 @@ export default function PrivacyPolicyPage() {
               <p className="text-zinc-400 mt-2">
                 Email:{" "}
                 <a href="mailto:privacy@crossmedia.com" className="text-cyan-400 hover:text-cyan-300 transition-colors">
-                  privacy@crossmedia.com
+                  crossmediaug@gmail.com
                 </a>
               </p>
             </div>
