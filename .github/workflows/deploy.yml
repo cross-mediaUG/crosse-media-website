@@ -17,6 +17,5 @@ jobs:
         server: ${{ secrets.FTP_SERVER }}
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
-        # WICHTIG: Hier den Ordnernamen deiner Domain eintragen,
-        # so wie er im File Manager von Cyberrocket heißt:
+        port: 22
         server-dir: ./cross-media.tech/
