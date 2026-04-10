@@ -1,0 +1,28 @@
+name: Deploy Next.js via SSH (SFTP)
+on:
+  push:
+    branches: [ main ] # Falls dein Branch 'master' heißt, hier ändern
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🚚 Checkout Code
+        uses: actions/checkout@v4 # Aktualisiert auf v4
+
+      - name: 🏗️ Install and Build
+        run: |
+          npm install
+          npm run build
+        # Wichtig: 'output: export' muss in deiner next.config.mjs stehen!
+
+      - name: 🚀 Upload via SFTP
+        uses: wlixcc/SFTP-Deploy-Action@v1.2.4
+        with:
+          username: ${{ secrets.SFTP_USER }}
+          server: ${{ secrets.SFTP_HOST }}
+          port: ${{ secrets.SFTP_PORT }} # Das ist die 2222
+          ssh_private_key: ${{ secrets.SSH_KEY }}
+          local_path: './out/*' 
+          remote_path: '/home/users/crossmedia/www/cross-media.tech/'
+          delete_remote_files: true
