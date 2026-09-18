@@ -1,8 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   // ZWINGEND: Erzeugt den 'out' Ordner für normales Webhosting
-  output: 'export', 
-  
+  output: 'export',
+  trailingSlash: true,
   // WICHTIG: Verhindert Fehler bei Bildern, da dein Server keine 
   // automatische Bildoptimierung wie Vercel hat
   images: {
