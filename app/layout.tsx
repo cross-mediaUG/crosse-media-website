@@ -8,14 +8,14 @@ const _geist = Geist({ subsets: ["latin"] })
 const _geistMono = Geist_Mono({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Cross Media - Coming Soon",
+  title: "Cross Media",
   description: "Cross Media - Work in Progress",
   generator: "v0.app",
 
-    verification: {
+  verification: {
     google: "RO4tYi_CHxvnbb0Bc0b6w_1t0GjGYybOC5VaYF0S0sY",
   },
-  
+
   icons: {
     icon: [
       {
