@@ -1,5 +1,16 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import type { Metadata } from 'next';
+
+
+// 🔹 Spezifische Metadaten nur für diese Seite:
+export const metadata: Metadata = {
+    title: 'Dreimann – Das Trinkspiel',
+    description: 'Offizielle Landingpage der Dreimann Trinkspiel-App',
+    icons: {
+        icon: '/dreimann-icon.png', // 🔹 Pfad zu deinem Dreimann-Icon im public-Ordner
+    },
+};
 
 export default function DreimannLandingPage() {
     const playStoreUrl =
