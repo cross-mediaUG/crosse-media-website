@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 // ============================================================================
 const FIRMENDATEN = {
     firmenname: "Cross-Media UG (haftungsbeschränkt)",
-    strasse: "Schloblick 14",
+    strasse: "Schloßblick 14",
     plzOrt: "87748 Fellheim",
     geschaeftsfuehrer: "Thore Zimmer",
     email: "crossmediaug@cross-media.tech",
