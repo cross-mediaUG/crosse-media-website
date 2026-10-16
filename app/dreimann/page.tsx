@@ -5,7 +5,7 @@ import SaleBanner from './SaleBanner';
 
 export const metadata: Metadata = {
     title: 'Dreimann – Das Trinkspiel',
-    description: 'Offizielle Landingpage der Dreimann Trinkspiel-App',
+    description: 'Keine Zettelwirtschaft, keine Diskussionen: Regeln griffbereit, Würfel an Bord. Lade dir die Dreimann Trinkspiel-App herunter!',
     icons: {
         icon: '/dreimann-icon.png',
     },
@@ -15,18 +15,18 @@ export default function DreimannLandingPage() {
     const playStoreUrl =
         'https://play.google.com/store/apps/details?id=de.dreimann.app';
 
-    const iosDownloadUrl = 'https://testflight.apple.com/join/DEIN_TESTFLIGHT_CODE';
-
     const qrCodeApiUrl = `https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=${encodeURIComponent(
         playStoreUrl
     )}&bgcolor=1c150e&color=F0DD91&margin=8`;
 
     return (
         <main className="min-h-screen w-full bg-[#0d0906] text-white relative overflow-hidden flex flex-col items-center justify-between p-6 sm:p-12">
+            {/* Subtile Lichteffekte im Hintergrund */}
             <div className="absolute -top-40 -left-40 w-96 h-96 bg-[#F0DD91]/10 rounded-full blur-3xl pointer-events-none" />
             <div className="absolute top-1/3 -right-40 w-96 h-96 bg-[#b36f28]/15 rounded-full blur-3xl pointer-events-none" />
             <div className="absolute -bottom-40 left-1/3 w-96 h-96 bg-[#F0DD91]/10 rounded-full blur-3xl pointer-events-none" />
 
+            {/* Zentrierter Hero- & Download-Bereich */}
             <div className="relative z-10 w-full max-w-5xl mx-auto flex flex-col items-center text-center my-auto">
                 <div className="relative w-64 sm:w-80 h-28 mb-6">
                     <Image
@@ -59,7 +59,6 @@ export default function DreimannLandingPage() {
                                 </span>
                             </div>
 
-                            {/* 🔹 HIER SITZT JETZT DER SALE BANNER */}
                             <SaleBanner />
 
                             <Link
@@ -129,8 +128,17 @@ export default function DreimannLandingPage() {
                 </div>
             </div>
 
-            <footer className="relative z-10 w-full text-center text-xs text-neutral-500 py-4 mt-8">
-                Ein Projekt der Cross-Media UG • Dreimann Trinkspiel-App
+            {/* 🔹 Neutraler Footer ohne direkte Firmen-Nennung, aber mit rechtlichem 2-Klick-Link */}
+            <footer className="relative z-10 w-full text-center text-xs text-neutral-500 py-4 mt-8 flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-6">
+                <span>© {new Date().getFullYear()} Dreimann App • Bitte verantwortungsvoll genießen (18+)</span>
+                <div className="flex gap-4">
+                    <Link
+                        href="/dreimann/impressum"
+                        className="text-neutral-400 hover:text-[#F0DD91] underline underline-offset-4 transition-colors"
+                    >
+                        Impressum & Datenschutz
+                    </Link>
+                </div>
             </footer>
         </main>
     );
