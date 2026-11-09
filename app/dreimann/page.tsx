@@ -4,7 +4,7 @@ import type { Metadata } from 'next';
 import SaleBanner from './SaleBanner';
 
 export const metadata: Metadata = {
-    title: 'Dreimann – Das Trinkspiel',
+    title: 'Dreimann – Das Partyspiel',
     description: 'Keine Zettelwirtschaft, keine Diskussionen: Regeln griffbereit, Würfel an Bord. Lade dir die Dreimann Trinkspiel-App herunter!',
     icons: {
         icon: '/dreimann-icon.png',
@@ -39,7 +39,7 @@ export default function DreimannLandingPage() {
                 </div>
 
                 <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-[#F0DD91] via-[#fff3c4] to-[#b36f28] mb-4">
-                    Das legendäre Trinkspiel für deine Runde.
+                    Das legendäre Paryspiel für deine Runde.
                 </h1>
                 <p className="text-base sm:text-xl text-neutral-300 max-w-2xl mx-auto mb-10 leading-relaxed">
                     Keine Zettelwirtschaft, keine Diskussionen: Regeln griffbereit, Würfel
@@ -130,7 +130,7 @@ export default function DreimannLandingPage() {
 
             {/* 🔹 Neutraler Footer ohne direkte Firmen-Nennung, aber mit rechtlichem 2-Klick-Link */}
             <footer className="relative z-10 w-full text-center text-xs text-neutral-500 py-4 mt-8 flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-6">
-                <span>© {new Date().getFullYear()} Dreimann App • Bitte verantwortungsvoll genießen (18+)</span>
+                <span>© {new Date().getFullYear()} Dreimann App</span>
                 <div className="flex gap-4">
                     <Link
                         href="/dreimann/impressum"
