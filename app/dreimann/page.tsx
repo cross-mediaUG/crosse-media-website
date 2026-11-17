@@ -15,8 +15,16 @@ export default function DreimannLandingPage() {
     const playStoreUrl =
         'https://play.google.com/store/apps/details?id=de.dreimann.app';
 
-    const qrCodeApiUrl = `https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=${encodeURIComponent(
+
+    const appStoreUrl =
+        'https://apps.apple.com/de/app/dreimann/id6832401454';
+
+    const playStoreQrCodeApiUrl = `https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=${encodeURIComponent(
         playStoreUrl
+    )}&bgcolor=1c150e&color=F0DD91&margin=8`;
+
+    const appStoreQrCodeApiUrl = `https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=${encodeURIComponent(
+        appStoreUrl
     )}&bgcolor=1c150e&color=F0DD91&margin=8`;
 
     return (
@@ -39,7 +47,7 @@ export default function DreimannLandingPage() {
                 </div>
 
                 <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-[#F0DD91] via-[#fff3c4] to-[#b36f28] mb-4">
-                    Das legendäre Paryspiel für deine Runde.
+                    Das legendäre Partyspiel für deine Runde.
                 </h1>
                 <p className="text-base sm:text-xl text-neutral-300 max-w-2xl mx-auto mb-10 leading-relaxed">
                     Keine Zettelwirtschaft, keine Diskussionen: Regeln griffbereit, Würfel
@@ -83,7 +91,7 @@ export default function DreimannLandingPage() {
                             <div className="p-2 bg-[#1c150e] border border-[#b36f28]/40 rounded-xl shadow-inner flex-shrink-0">
                                 {/* eslint-disable-next-line @next/next/no-img-element */}
                                 <img
-                                    src={qrCodeApiUrl}
+                                    src={playStoreQrCodeApiUrl}
                                     alt="QR-Code direkt zu Google Play"
                                     className="w-24 h-24 rounded-lg"
                                 />
@@ -95,40 +103,60 @@ export default function DreimannLandingPage() {
                         </div>
                     </div>
 
-                    {/* 2. iOS / Apple Box (Inaktiv) */}
-                    <div className="bg-[#121110]/50 border border-neutral-800 rounded-2xl p-6 sm:p-8 flex flex-col justify-between shadow-xl backdrop-blur-md opacity-75">
-                        <div>
+                    {/* 2. iOS / Apple Box (Aktiviert) */}
+                    <div className="bg-[#15100b]/80 border-2 border-[#F0DD91]/60 hover:border-[#F0DD91] transition-colors rounded-2xl p-6 sm:p-8 flex flex-col justify-between shadow-[0_0_20px_rgba(240,221,145,0.15)] backdrop-blur-md relative">
+
+                        <div className="relative z-10">
                             <div className="flex items-center justify-between mb-4">
-                                <span className="text-xs uppercase tracking-widest text-neutral-500 font-bold">
+                                <span className="text-xs uppercase tracking-widest text-[#F0DD91] font-bold">
                                     Apple • iOS
                                 </span>
-                                <span className="bg-neutral-800 text-neutral-400 text-[11px] font-semibold px-2.5 py-0.5 rounded-full border border-neutral-700">
-                                    In Vorbereitung
+                                {/* 🔹 Angepasste Status-Badge im Gold/Braun-Thema */}
+                                <span className="bg-[#F0DD91] text-[#422C00] text-[11px] font-bold px-2.5 py-0.5 rounded-full shadow-[0_0_8px_rgba(240,221,145,0.6)]">
+                                    NEU: Release für iPhone
                                 </span>
                             </div>
 
-                            <div className="flex items-center gap-4 bg-neutral-900/60 border border-neutral-800 p-4 rounded-xl cursor-not-allowed mb-6">
-                                <div className="w-9 h-9 flex-shrink-0 flex items-center justify-center">
-                                    <svg className="w-8 h-8 fill-current text-neutral-500" viewBox="0 0 24 24">
+                            <Link
+                                href={appStoreUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="group flex items-center gap-4 bg-gradient-to-r from-[#21170e] to-[#332213] border border-[#b36f28]/50 hover:border-[#F0DD91] p-4 rounded-xl transition-all duration-300 hover:scale-[1.02] shadow-lg mb-6 relative overflow-hidden"
+                            >
+                                {/* Dezenter Glow-Effekt im Button */}
+                                <div className="absolute inset-0 bg-gradient-to-r from-[#F0DD91]/0 via-[#F0DD91]/5 to-[#F0DD91]/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
+
+                                <div className="w-9 h-9 flex-shrink-0 flex items-center justify-center relative z-10">
+                                    <svg className="w-8 h-8 fill-current text-[#F0DD91] group-hover:scale-110 transition-transform" viewBox="0 0 24 24">
                                         <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.37c.62-.75 1.04-1.8 0.92-2.85-.9.04-2 .6-2.65 1.35-.58.66-1.09 1.74-.95 2.76 1.01.08 2.05-.51 2.68-1.26z" />
                                     </svg>
                                 </div>
-                                <div>
-                                    <div className="text-[11px] uppercase tracking-wider text-neutral-500 font-medium">Demnächst im</div>
-                                    <div className="text-xl font-bold text-neutral-400">App Store (iOS)</div>
+                                <div className="relative z-10">
+                                    <div className="text-[11px] uppercase tracking-wider text-neutral-400 font-medium">Endlich im</div>
+                                    <div className="text-xl font-bold text-white group-hover:text-[#F0DD91] transition-colors">App Store</div>
                                 </div>
-                            </div>
+                            </Link>
                         </div>
 
-                        <div className="p-4 bg-neutral-900/40 rounded-xl border border-neutral-800/80 text-xs text-neutral-400">
-                            <span className="font-semibold text-neutral-300 block mb-1">Bald verfügbar:</span>
-                            Die iOS-Version befindet sich aktuell in der Abstimmung mit Apple. Sobald sie freigegeben ist, erscheint hier der direkte Link.
+                        <div className="flex items-center gap-4 pt-4 border-t border-neutral-800/80 relative z-10">
+                            <div className="p-2 bg-[#1c150e] border border-[#b36f28]/40 rounded-xl shadow-inner flex-shrink-0">
+                                {/* eslint-disable-next-line @next/next/no-img-element */}
+                                <img
+                                    src={appStoreQrCodeApiUrl}
+                                    alt="QR-Code direkt zum App Store"
+                                    className="w-24 h-24 rounded-lg"
+                                />
+                            </div>
+                            <div className="text-xs text-neutral-400">
+                                <strong className="text-neutral-200 block mb-1">App Store Direktscan</strong>
+                                Scanne den Code mit deinem iPhone, um die neue iOS-Version herunterzuladen.
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            {/* 🔹 Neutraler Footer ohne direkte Firmen-Nennung, aber mit rechtlichem 2-Klick-Link */}
+            {/* Neutraler Footer ohne direkte Firmen-Nennung, aber mit rechtlichem 2-Klick-Link */}
             <footer className="relative z-10 w-full text-center text-xs text-neutral-500 py-4 mt-8 flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-6">
                 <span>© {new Date().getFullYear()} Dreimann App</span>
                 <div className="flex gap-4">
